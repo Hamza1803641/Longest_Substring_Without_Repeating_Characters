@@ -30,8 +30,10 @@ public:
 
 int main()
 {
-    string st ="pwwkew";
+    string st ="\0";
     Solution s;
+	cout<<" write a string to find substring  -> ";
+	cin>>st;
    cout<< s.lengthOfLongestSubstring(st);
 
 
