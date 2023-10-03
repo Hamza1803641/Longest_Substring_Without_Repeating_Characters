@@ -12,25 +12,18 @@ public:
     }
     int lengthOfLongestSubstring(string s)
     {
-        string temp1, temp2 = "\0";
-        for (int i = 0; i < s.size(); i++)
+       int temp[200] = {0},start = 0, max_length= 0;;
+        for (int i = 0; i < s.length(); i++)
         {
-            for (int j = 0; j < temp1.size(); j++)
-                if (temp1[j] == s[i])
-                 if (temp1.size() >= temp2.size())
-                 {
-                        // temp1.erase(temp1.end() - 1);
-                        temp2 = temp1;
-                        temp1 = "\0";
-                        //temp1 = temp1 + s[i];
-
-                 }
-            
-            temp1 = temp1 + s[i];
-
+            while (temp[s[i]] > 0)
+                temp[s[start++]] = 0;   
+                
+            temp[s[i]]++;
+            max_length =max(max_length, i - start + 1);
         }
-        return temp2.length();
+        return max_length;
     }
+    
 
 
 };
